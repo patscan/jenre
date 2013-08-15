@@ -24,6 +24,10 @@ gem 'jquery-rails'
 
 gem 'sass'
 
+gem 'rails-backbone'
+# need to run rails g backbone:install
+# https://github.com/codebrew/backbone-rails
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
