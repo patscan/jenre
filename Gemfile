@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,9 +20,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'sass'
-
+gem "haml", "~> 4.0.3"
 gem 'rails-backbone'
 # need to run rails g backbone:install
 # https://github.com/codebrew/backbone-rails
