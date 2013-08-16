@@ -2,12 +2,14 @@
 
 %p Wait till all the awesome is here!
 
-= form_tag :id => 'song-picker' do
+#jenreapp
+
   %div
     = label_tag(:artist, "Artist: ")
-    = text_field_tag(:artist, nil, :placeholder => "e.g., The Police")
+    = text_field_tag(:artist, nil, :placeholder => "e.g., The Police", :autofocus => true)
   %div
     = label_tag(:song, "Song title: ")
     = text_field_tag(:artist, nil, :placeholder => "e.g., Roxanne")
-  %div
-    = submit_tag("Add to playlist")
+
+  #submit-song-search
+    "Add to playlist"
