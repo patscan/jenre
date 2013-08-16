@@ -1,16 +1,11 @@
-$(function(){
-  Jenre.AppView = Backbone.View.extend({
-    el: $('#jenreapp'),
+Jenre.AppView = Backbone.View.extend({
 
-    events: {
-      'click #submit-song-search' : 'test'
-    },
+  events: {
+    'click #submit-song-search' : 'test'
+  },
 
-    test: function() {
-      alert("yo");
-      console.log("yo");
-    }
-  });
-  
-  new Jenre.AppView();
+  test: function() {
+    alert("yo");
+    console.log("yo");
+  }
 });

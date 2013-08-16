@@ -10,3 +10,8 @@ window.Jenre =
   Routers: {}
   Views: {}
 
+  init: ->
+    appView = new Jenre.AppView({el: $('#jenreapp')})
+
+$(document).ready ->
+  Jenre.init()
