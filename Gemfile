@@ -27,6 +27,8 @@ gem 'rails-backbone'
 # https://github.com/codebrew/backbone-rails
 
 gem 'httparty'
+gem 'omniauth'
+gem 'omniauth-rdio'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

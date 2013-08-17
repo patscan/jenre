@@ -43,6 +43,7 @@ GEM
       multi_json (~> 1.0)
     haml (4.0.3)
       tilt
+    hashie (2.0.5)
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -59,6 +60,15 @@ GEM
     mime-types (1.24)
     multi_json (1.7.9)
     multi_xml (0.5.5)
+    oauth (0.4.7)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-rdio (0.1.0)
+      omniauth-oauth (~> 1.0)
     pg (0.16.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -118,6 +128,8 @@ DEPENDENCIES
   haml (~> 4.0.3)
   httparty
   jquery-rails
+  omniauth
+  omniauth-rdio
   pg
   rails (= 3.2.13)
   rails-backbone
