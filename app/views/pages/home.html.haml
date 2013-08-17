@@ -6,10 +6,10 @@
 
   %div
     = label_tag(:artist, "Artist: ")
-    = text_field_tag(:artist, nil, :placeholder => "e.g., The Police", :autofocus => true)
+    = text_field_tag(:artist, "The Police", :placeholder => "e.g., The Police", :autofocus => true)
   %div
     = label_tag(:song, "Song title: ")
-    = text_field_tag(:artist, nil, :placeholder => "e.g., Roxanne")
+    = text_field_tag(:song, "Roxanne", :placeholder => "e.g., Roxanne")
 
   #submit-song-search
     "Add to playlist"
