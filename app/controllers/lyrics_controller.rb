@@ -9,6 +9,6 @@ class LyricsController < ApplicationController
                   query: {artist: artist, song: song})
 
     lyrics = response['GetLyricResult']['Lyric']
-    render text: lyrics
+    render text: lyrics.gsub(/\n/, "<br/>")
   end
 end
