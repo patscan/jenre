@@ -26,9 +26,14 @@ gem 'rails-backbone'
 # need to run rails g backbone:install
 # https://github.com/codebrew/backbone-rails
 
+gem 'figaro'
+# running rails generate figaro:install will create config/application.yml
+# that we can store our environment variables in (production and dev)!
+
 gem 'httparty'
 gem 'omniauth'
 gem 'omniauth-rdio'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
