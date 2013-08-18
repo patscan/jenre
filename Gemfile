@@ -33,6 +33,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'omniauth'
 gem 'omniauth-rdio'
+gem 'pry'
 
 
 # To use ActiveModel has_secure_password

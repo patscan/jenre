@@ -3,7 +3,7 @@
 %p Wait till all the awesome is here!
 
 #jenreapp
-
+  
   %div
     = label_tag(:artist, "Artist: ")
     = text_field_tag(:artist, "The Police", :placeholder => "e.g., The Police", :autofocus => true)
@@ -12,4 +12,29 @@
     = text_field_tag(:song, "Roxanne", :placeholder => "e.g., Roxanne")
 
   #submit-song-search
-    "Add to playlist"
+    Add to playlist
+
+  %a{ href: "/auth/rdio" }
+    sign in with rdio 
+  
+
+//:javascript
+
+
+<div id="api"></div>
+<img id="art" src="" height="200" width="200" style="float:left;margin-right:20px;">
+<div>
+<div><b>Track: </b><span id="track"></span></div>
+<div><b>Album: </b><span id="album"></span></div>
+<div><b>Artist: </b><span id="artist"></span></div>
+<div><b>Position: </b>
+<span style="display:inline-block;width:200px;border:1px solid black;">
+<span id="position" style="display:inline-block;background-color:#666">&nbsp;</span>
+</span></div>
+<div>
+<button id="previous">&lt;&lt;</button>
+<button id="play">|&gt;</button>
+<button id="pause">||</button>
+<button id="next">&gt;&gt;</button>
+</div>
+</div>

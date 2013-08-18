@@ -2,6 +2,9 @@ Jenre::Application.routes.draw do
 
   root :to => 'pages#home'
   resources :lyrics
+  resources :rdio_id
+
+  match '/auth/rdio/callback' => 'sessions#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
