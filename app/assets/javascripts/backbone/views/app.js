@@ -10,25 +10,26 @@ Jenre.AppView = Backbone.View.extend({
     var songObject = ({artist: artistQuery, song: songQuery});
     var rdio_Id, lyricz
 
-    Jenre.song = new Jenre.Song();
-
     $.ajax({
       method: 'post',
       url: '/lyrics/',
       data: songObject
     }).done(function(response){ 
       lyricz = response;
-      Jenre.song.set({lyrics: lyricz});
-  });
-
+    }).done(function() {
     $.ajax({
       method: 'post',
       url: '/rdio_id/',
       data: songObject
     }).done(function(response){ 
       rdio_Id = response;
-      Jenre.song.set({rdio_id: rdio_Id});
+    }).done(function(){
+
+      Jenre.songs.create({lyrics: lyricz, rdio_id: rdio_Id});
+      Jenre.rdio_id = rdio_Id;
+
     });
+  })
 
   }
 });
