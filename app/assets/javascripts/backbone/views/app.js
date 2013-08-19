@@ -1,10 +1,17 @@
 Jenre.AppView = Backbone.View.extend({
 
+  //el: $('#jenre-app'),
+
   events: {
-    'click #submit-song-search' : 'lyricSearch',
+    'click #get-song' : 'getSong'
+    // 'click #play' : 'playSong'
   },
 
-  lyricSearch: function() {
+  initialize: function() {
+    this.listenTo(Jenre.songs, 'add', this.playSong);
+  },
+
+  getSong: function() {
     var artistQuery = $('#artist').val();
     var songQuery = $('#song').val();
     var songObject = ({artist: artistQuery, song: songQuery});
@@ -27,9 +34,12 @@ Jenre.AppView = Backbone.View.extend({
 
       Jenre.songs.create({lyrics: lyricz, rdio_id: rdio_Id});
       Jenre.rdio_id = rdio_Id;
+      });
+    })
+  },
 
-    });
-  })
-
+  playSong: function(song) {
+    $('#api').rdio().play(song.get("rdio_id"));
   }
 });
+

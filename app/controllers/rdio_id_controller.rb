@@ -10,7 +10,7 @@ class RdioIdController < ApplicationController
       "http://developer.echonest.com/api/v4/song/search?api_key=#{echonest_api_key}&format=json&results=1&artist=#{artist}&title=#{title}&bucket=id:rdio-US&bucket=tracks&limit=true"
       )
 
-    rdio_id = response["response"]["songs"][0]["tracks"][0]["foreign_release_id"][-7..-1]
+    rdio_id = response["response"]["songs"][0]["tracks"][0]["foreign_id"][-8..-1]
     render text: rdio_id
   end
 

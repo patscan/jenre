@@ -11,7 +11,7 @@ window.Jenre =
   Views: {}
 
   init: ->
-    appView = new Jenre.AppView({el: $('#jenreapp')})
+    appView = new Jenre.AppView({el: $('#jenre-app')})
 
 $(document).ready ->
   Jenre.init()
