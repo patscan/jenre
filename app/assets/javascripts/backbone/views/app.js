@@ -9,6 +9,7 @@ Jenre.AppView = Backbone.View.extend({
     this.listenTo(Jenre.songs, 'add', this.addSongToStream);
     this.listenTo(Jenre.songs, 'add', this.displayLyrics);
     this.listenTo(Jenre.hashtags, 'add', this.fetchTweets);
+    this.listenTo(Jenre.tweets, 'add', this.displayTweets);
   },
 
   getSong: function() {
@@ -55,14 +56,25 @@ Jenre.AppView = Backbone.View.extend({
       method: 'post',
       url: '/tweets/',
       data: {hashtags: Jenre.hashtags.pluck("body")}
-    }).done(function(response) {
-      console.log(response);
+    }).done(function(tweetArray) {
+      _.each(tweetArray, function(tweet) {
+        Jenre.tweets.create({ content: tweet })
+      });
     });
   },
 
   displayLyrics: function(song) {
     var view = new Jenre.LyricView({ model: song });
     $('#get-song').append( view.render().el );
+  },
+
+  displayTweet: function(tweet) {
+    var view = new Jenre.TweetView({ model: tweet });
+    $('#get-song').append( view.render().el );
+  },
+
+  displayTweets: function() {
+    Jenre.tweets.each(this.displayTweet, this);
   }
 
 });

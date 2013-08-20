@@ -1,7 +1,7 @@
 var Hashtags = Backbone.Collection.extend({
   
   model: Jenre.Hashtag,
-  localStorage: new Backbone.LocalStorage("LocalTweets")
+  localStorage: new Backbone.LocalStorage("LocalHashtags")
 
 })
 
