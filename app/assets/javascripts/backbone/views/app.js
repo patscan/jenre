@@ -44,6 +44,7 @@ Jenre.AppView = Backbone.View.extend({
   },
 
   playSong: function(song) {
+    $('#content-container').fadeIn();
     $('#api').rdio().play(song.get("rdio_id"));
   },
 
@@ -65,12 +66,12 @@ Jenre.AppView = Backbone.View.extend({
 
   displayLyrics: function(song) {
     var view = new Jenre.LyricView({ model: song });
-    $('#get-song').append( view.render().el );
+    $('#lyrics-container').html( view.render().el );
   },
 
   displayTweet: function(tweet) {
     var view = new Jenre.TweetView({ model: tweet });
-    $('#get-song').append( view.render().el );
+    $('#tweets-container').html( view.render().el );
   },
 
   displayTweets: function() {

@@ -1,6 +1,11 @@
 body {
   background: url('broken_noise.png');
   color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: white;
 }
 
 #jenre-app {
@@ -31,33 +36,103 @@ body {
   width: 50%;
 }
 
-/*label {
-  width: 20%;
-  display: inline-block;
-  /*min-width: 70px;
-}*/
+#searchbar {
+  height: 25px;
+}
 
 #searchbar div {
+  height: 100%;
   float: left;
-  width: 33%;
+  input {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 90%;
+  }
 }
 
-input {
-  width: 90%;
+#searchbar div:nth-child(-n+2) {
+  width: 40%;
 }
 
-#get-song {
+#searchbar div:last-child {
+  color: slategray;
   width: 20%;
-  background-color: red;
-  /*width: 33%; height: 200px;*/
+  height: 100%;
+  border-radius: 2px;
+  background-color: rgb(107, 191, 42);
+  text-align: center;
+  line-height: 25px;
+  &:hover {
+    cursor: pointer;
+  };
 }
 
 /* player code */
 
 #art {
-  height: 200px; 
-  width: 200px;
+  border: 1px solid white;
+  height: 150px; 
+  width: 150px;
   float:left;
   margin-right:20px;
+  margin-bottom: 10px;
+}
+
+#position-container {
+  display: inline-block;
+  width:200px;
+  border:1px solid black;
+}
+
+#position {
+  display: inline-block;
+  background-color:#666;
+}
+
+#content-container {
+  display: none;
+  #col {
+    min-width: 350px;
+    width: 50%;
+  }
+}
+
+#music-player {
+  font-size: .6em;
+  vertical-align: bottom;
+}
+
+#pause {
+  display: none;
+}
+
+#song-info {
+  padding-top: 35px;
+  vertical-align: middle;
+}
+
+#col1, #col2 {
+  h3 {
+    clear: both;
+    margin-top: 0px;
+  }
+  width: 48%;
+}
+
+#col1 {
+  display: block;
+  width: 48%;
+  float: left;
+}
+
+#col2 {
+  float: right;
+  text-align: left;
+}
+
+.tweet {
+  margin-bottom: 5px;
 }
 

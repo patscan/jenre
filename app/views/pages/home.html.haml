@@ -3,45 +3,51 @@
 
 #jenre-app
   #logo
-    /%h1 jenre.co
 
   #info 
-    %p Wait till all the awesome is here!
+    %p join the listening party
   
   #searchbar
     %div
-      / = label_tag(:artist, "Artist: ")
       = text_field_tag(:artist, nil, :placeholder => "Enter an artist:", :autofocus => true)
     %div
-      /= label_tag(:song, "Song title: ")
       = text_field_tag(:song, nil, :placeholder => "Enter a song:")
 
     #get-song
-      Add to playlist
+      Play!
 
-  // boilerplate rdio player code
   #api
+  #content-container
 
-  %img{src: "", id: "art"}
+    #col1
+      #music-player
+        %img{src: "", id: "art"}
 
-  %div
-    %div
-      %b Track:
-      %span{ id: "track" }
+        %div{ id: "song-info" }
+          %div
+            %b Track:
+            %span{ id: "track" }
 
-    %div
-      %b Album:
-      %span{ id: "album" }
+          %div
+            %b Album:
+            %span{ id: "album" }
 
-    %div
-      %b Artist:
-      %span{ id: "artist" }
+          %div
+            %b Artist:
+            %span{ id: "artist" }
 
-    %div
-      %b Position:
-      %span{ style: "display:inline-block;width:200px;border:1px solid black;"} 
-        %span{id: "position", style: "display:inline-block;background-color:#666"} &nbsp;
+          %div
+            %button{ id: "play" } |&gt;
+            %button{ id: "pause"} ||
 
-    %div
-      %button{ id: "play" } |&gt;
-      %button{ id: "pause"} ||
+      #clear
+    
+      %h3 Song Lyrics
+      #lyrics-container
+    #clear
+
+    #col2
+      %h3 Recent Tweets
+      #tweets-container
+
+
