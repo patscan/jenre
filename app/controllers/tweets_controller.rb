@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
     hashtags.each do |hashtag|
       stream << Twitter.search("##{hashtag}", result_type: "recent").statuses.collect do |tweet| 
         "@#{tweet.user.screen_name}: #{tweet.text}"
-      end                                                                                   \
+      end
     end
   
     render json: stream

@@ -50,8 +50,6 @@ Jenre.AppView = Backbone.View.extend({
   },
 
   fetchTweets: function() {
-    alert("gettin yr tweetz!");
-
     $.ajax({
       method: 'post',
       url: '/tweets/',
