@@ -17,5 +17,6 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require backbone.localStorage
 //= require backbone/jenre
 //= require_tree .
