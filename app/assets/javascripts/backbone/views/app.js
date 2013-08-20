@@ -7,6 +7,7 @@ Jenre.AppView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(Jenre.songs, 'add', this.playSong);
     this.listenTo(Jenre.songs, 'add', this.addSongToStream);
+    this.listenTo(Jenre.songs, 'add', this.displayLyrics);
     this.listenTo(Jenre.hashtags, 'add', this.fetchTweets);
   },
 
@@ -57,6 +58,11 @@ Jenre.AppView = Backbone.View.extend({
     }).done(function(response) {
       console.log(response);
     });
+  },
+
+  displayLyrics: function(song) {
+    var view = new Jenre.LyricView({ model: song });
+    $('#get-song').append( view.render().el );
   }
 
 });
