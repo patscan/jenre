@@ -1,40 +1,47 @@
-%h1 jenre.co
-
-%p Wait till all the awesome is here!
+%a{ href: "/auth/rdio", id: "rdio-signin" }
+  sign in with rdio 
 
 #jenre-app
+  #logo
+    /%h1 jenre.co
+
+  #info 
+    %p Wait till all the awesome is here!
   
+  #searchbar
+    %div
+      / = label_tag(:artist, "Artist: ")
+      = text_field_tag(:artist, nil, :placeholder => "Enter an artist:", :autofocus => true)
+    %div
+      /= label_tag(:song, "Song title: ")
+      = text_field_tag(:song, nil, :placeholder => "Enter a song:")
+
+    #get-song
+      Add to playlist
+
+  // boilerplate rdio player code
+  #api
+
+  %img{src: "", id: "art"}
+
   %div
-    = label_tag(:artist, "Artist: ")
-    = text_field_tag(:artist, "The Police", :placeholder => "e.g., The Police", :autofocus => true)
-  %div
-    = label_tag(:song, "Song title: ")
-    = text_field_tag(:song, "Roxanne", :placeholder => "e.g., Roxanne")
+    %div
+      %b Track:
+      %span{ id: "track" }
 
-  #get-song
-    Add to playlist
+    %div
+      %b Album:
+      %span{ id: "album" }
 
-  %a{ href: "/auth/rdio" }
-    sign in with rdio 
-  
+    %div
+      %b Artist:
+      %span{ id: "artist" }
 
-//:javascript
+    %div
+      %b Position:
+      %span{ style: "display:inline-block;width:200px;border:1px solid black;"} 
+        %span{id: "position", style: "display:inline-block;background-color:#666"} &nbsp;
 
-
-<div id="api"></div>
-<img id="art" src="" height="200" width="200" style="float:left;margin-right:20px;">
-<div>
-<div><b>Track: </b><span id="track"></span></div>
-<div><b>Album: </b><span id="album"></span></div>
-<div><b>Artist: </b><span id="artist"></span></div>
-<div><b>Position: </b>
-<span style="display:inline-block;width:200px;border:1px solid black;">
-<span id="position" style="display:inline-block;background-color:#666">&nbsp;</span>
-</span></div>
-<div>
-<button id="previous">&lt;&lt;</button>
-<button id="play">|&gt;</button>
-<button id="pause">||</button>
-<button id="next">&gt;&gt;</button>
-</div>
-</div>
+    %div
+      %button{ id: "play" } |&gt;
+      %button{ id: "pause"} ||

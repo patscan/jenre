@@ -1,9 +1,63 @@
-label {
+body {
+  background: url('broken_noise.png');
+  color: white;
+}
+
+#jenre-app {
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 70%;
+  min-width: 300px;
+}
+
+#rdio-signin {
+  position: relative;
+  float: right;
+  top:5px;
+}
+
+#logo {
+  background: url('logo.png') center top no-repeat;
+  text-align: center;
+  margin: 0 auto;
+  width: auto;
+  height: 149px;
+}
+
+#info {
+  font-size: .9em;
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/*label {
+  width: 20%;
   display: inline-block;
-  min-width: 70px;
+  /*min-width: 70px;
+}*/
+
+#searchbar div {
+  float: left;
+  width: 33%;
+}
+
+input {
+  width: 90%;
 }
 
 #get-song {
+  width: 20%;
   background-color: red;
-  width: 500px; height: 200px;
+  /*width: 33%; height: 200px;*/
 }
+
+/* player code */
+
+#art {
+  height: 200px; 
+  width: 200px;
+  float:left;
+  margin-right:20px;
+}
+
