@@ -45,7 +45,7 @@ Jenre.AppView = Backbone.View.extend({
 
   playSong: function(song) {
     $('#content-container').fadeIn();
-    $('#api').rdio().play(song.get("rdio_id"));
+    $('#rdio-api').rdio().play(song.get("rdio_id"));
   },
 
   addSongToStream: function(song) {

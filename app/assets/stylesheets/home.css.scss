@@ -1,7 +1,23 @@
+$green: rgb(107, 191, 42);
+
 body {
-  background: url('broken_noise.png');
+  background: url('tweed.png');
   color: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+#wrapper {
+  margin: 0;
+  -moz-box-shadow: inset 0 0 10em #666;  
+  -webkit-box-shadow: inset 0 0 10em #666;   
+  box-shadow: inset 0 0 10em black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  z-index: 2;
+  content: "";
 }
 
 a {
@@ -18,11 +34,12 @@ a {
 #rdio-signin {
   position: relative;
   float: right;
-  top:5px;
+  top:10px;
+  margin-right: 30px
 }
 
 #logo {
-  background: url('logo.png') center top no-repeat;
+  background: url('logo2.png') center top no-repeat;
   text-align: center;
   margin: 0 auto;
   width: auto;
@@ -56,20 +73,20 @@ a {
   width: 40%;
 }
 
+/* #get-song button */
 #searchbar div:last-child {
-  color: slategray;
+  color: white;
   width: 20%;
   height: 100%;
   border-radius: 2px;
-  background-color: rgb(107, 191, 42);
+  background-color: darken($green, 5%);
   text-align: center;
   line-height: 25px;
   &:hover {
     cursor: pointer;
+    background-color: darken($green, 10%);
   };
 }
-
-/* player code */
 
 #art {
   border: 1px solid white;
@@ -92,11 +109,16 @@ a {
 }
 
 #content-container {
+  padding: 20px 0 20px 0;
   display: none;
   #col {
     min-width: 350px;
     width: 50%;
   }
+}
+
+#rdio-api {
+  opacity: 0;
 }
 
 #music-player {
@@ -115,10 +137,12 @@ a {
 
 #col1, #col2 {
   h3 {
+    color: $green;
     clear: both;
     margin-top: 0px;
   }
   width: 48%;
+  padding-bottom: 30px;
 }
 
 #col1 {
@@ -130,6 +154,26 @@ a {
 #col2 {
   float: right;
   text-align: left;
+}
+
+#lyrics-container, #tweets-container {
+  overflow: auto;
+  min-width: 150px;
+  font-size: .8em;
+  padding: 20px 10px 10px 10px;
+  border-radius: 2px;
+  background-color: white;
+  div {
+    color: slategray;
+  }
+}
+
+#tweets-container {
+  max-height: 500px;
+}
+
+#lyrics-container {
+  max-height: 339px;
 }
 
 .tweet {
