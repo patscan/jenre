@@ -1,6 +1,8 @@
 var duration = 1; // track the duration of the currently playing track
+var apiswf = null;
+
 $(document).ready(function() {
-  $('rdio-api').bind('ready.rdio', function() {
+  $('#rdio-api').bind('ready.rdio', function() {
     
   });
   $('#rdio-api').bind('playingTrackChanged.rdio', function(e, playingTrack, sourcePosition) {
@@ -12,10 +14,10 @@ $(document).ready(function() {
       $('#artist').text(playingTrack.artist);
     }
     });
-  $('rdio-api').bind('positionChanged.rdio', function(e, position) {
+  $('#rdio-api').bind('positionChanged.rdio', function(e, position) {
     $('#position').css('width', Math.floor(100*position/duration)+'%');
   });
-  $('rdio-api').bind('playStateChanged.rdio', function(e, playState) {
+  $('#rdio-api').bind('playStateChanged.rdio', function(e, playState) {
     if (playState == 0) { // paused
       $('#play').show();
       $('#pause').hide();
@@ -25,7 +27,7 @@ $(document).ready(function() {
     }
   });
   console.log("#{token}");
-  $('#rdio-api').rdio('GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=');
+  $('#rdio-api').rdio('GBNT5_Ik_____zJzcTNxdzl2d3BtdWZkY21hNGR6dzJ2YWplbnJlLmhlcm9rdWFwcC5jb225ZpBN3JHKvU031EbV3pK0');
 
 
   $('#previous').click(function() { $('#rdio-api').rdio().previous(); });
