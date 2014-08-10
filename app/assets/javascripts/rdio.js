@@ -1,5 +1,4 @@
 var duration = 1; // track the duration of the currently playing track
-var apiswf = null;
 
 $(document).ready(function() {
   $('#rdio-api').bind('ready.rdio', function() {
@@ -26,10 +25,9 @@ $(document).ready(function() {
       $('#pause').show();
     }
   });
-  console.log("#{token}");
   $('#rdio-api').rdio('GBNT5_Ik_____zJzcTNxdzl2d3BtdWZkY21hNGR6dzJ2YWplbnJlLmhlcm9rdWFwcC5jb225ZpBN3JHKvU031EbV3pK0');
 
-
+  $('#play').click(function() { $('#rdio-api').rdio().play(); });
   $('#previous').click(function() { $('#rdio-api').rdio().previous(); });
   $('#pause').click(function() { $('#rdio-api').rdio().pause(); });
   $('#next').click(function() { $('#rdio-api').rdio().next(); });
