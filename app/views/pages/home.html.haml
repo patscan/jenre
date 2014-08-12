@@ -9,7 +9,7 @@
   
   #searchbar
     %div
-      = text_field_tag(:artist, nil, :placeholder => "Enter an artist:", :autofocus => true)
+      = text_field_tag(:artist, nil, :placeholder => "Enter an artist:", :autofocus => true, id: 'artist-search')
     %div
       = text_field_tag(:song, nil, :placeholder => "Enter a song:")
 
@@ -37,8 +37,8 @@
             %span{ id: "artist" }
 
           %div
-            %button{ id: "play" } |&gt;
-            %button{ id: "pause"} ||
+            %button{ id: "play" } 
+            %button{ id: "pause"} 
 
       #clear
     

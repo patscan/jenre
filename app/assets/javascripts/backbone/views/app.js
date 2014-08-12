@@ -1,22 +1,23 @@
 Jenre.AppView = Backbone.View.extend({
 
   events: {
-    'click #get-song' : 'getSong'
+    'click #get-song' : 'getSong',
+    'keyup #song' : 'wasEnterPressed'
   },
 
   initialize: function() {
     this.listenTo(Jenre.songs, 'add', this.playSong);
     this.listenTo(Jenre.songs, 'add', this.addSongToStream);
     this.listenTo(Jenre.songs, 'add', this.displayLyrics);
-    this.listenTo(Jenre.hashtags, 'add', this.fetchTweets);
-    this.listenTo(Jenre.tweets, 'add', this.displayTweets);
+    this.listenTo(Jenre.songs, 'add', this.fetchTweets);
+    //this.listenTo(Jenre.tweets, 'add', this.displayTweets);
   },
 
   getSong: function() {
-    var artistQuery = $('#artist').val();
-    var songQuery = $('#song').val();
-    var songObject = ({ artist: artistQuery, song: songQuery });
-    var rdio_Id, lyricz
+    var artistQuery = $('#artist-search').val(),
+        songQuery = $('#song').val(),
+        songObject = ({ artist: artistQuery, song: songQuery }),
+        rdio_Id, lyricz;
 
     $.ajax({
       method: 'post',
@@ -25,22 +26,27 @@ Jenre.AppView = Backbone.View.extend({
     }).done(function(response){ 
       lyricz = response;
     }).done(function() {
-    $.ajax({
-      method: 'post',
-      url: '/rdio_id/',
-      data: songObject
-    }).done(function(response){ 
-      rdio_Id = response;
-    }).done(function(){
-
-      Jenre.songs.create({
-        lyrics: lyricz, 
-        rdio_id: rdio_Id, 
-        artist: artistQuery,
-        title: songQuery
+      $.ajax({
+        method: 'post',
+        url: '/rdio_id/',
+        data: songObject
+      }).done(function(response){ 
+        rdio_Id = response;
+      }).done(function(){
+        Jenre.songs.create({
+          lyrics: lyricz, 
+          rdio_id: rdio_Id, 
+          artist: artistQuery,
+          title: songQuery
         });
       });
     })
+  },
+
+  wasEnterPressed: function(e) {
+    if (e.keyCode == 13) {
+      this.getSong();
+    }
   },
 
   playSong: function(song) {
@@ -49,19 +55,24 @@ Jenre.AppView = Backbone.View.extend({
   },
 
   addSongToStream: function(song) {
-    Jenre.hashtags.create({ body: song.get("artist") });
+    Jenre.hashtags.reset({ body: song.get("artist") });
   },
 
   fetchTweets: function() {
+    var artist = $('#artist-search').val(); 
     $.ajax({
       method: 'post',
       url: '/tweets/',
-      data: {hashtags: Jenre.hashtags.pluck("body")}
+      data: { hashtag : artist }
     }).done(function(tweetArray) {
+      var tweetz = [];
       _.each(tweetArray, function(tweet) {
-        Jenre.tweets.create({ content: tweet })
+        tweetz.push( {content: tweet} );
       });
+      Jenre.tweets.reset( tweetz );
     });
+
+    this.displayTweets();
   },
 
   displayLyrics: function(song) {
@@ -71,11 +82,14 @@ Jenre.AppView = Backbone.View.extend({
 
   displayTweet: function(tweet) {
     var view = new Jenre.TweetView({ model: tweet });
-    $('#tweets-container').html( view.render().el );
   },
 
   displayTweets: function() {
-    Jenre.tweets.each(this.displayTweet, this);
+    var view = new Jenre.TweetCollectionView({
+      collection: Jenre.tweets
+    });
+
+    $('#tweets-container').html( view.render().el );
   }
 
 });

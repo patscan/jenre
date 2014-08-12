@@ -1,9 +1,9 @@
 var duration = 1; // track the duration of the currently playing track
 
 $(document).ready(function() {
-  $('#rdio-api').bind('ready.rdio', function() {
-    
-  });
+
+  $('#rdio-api').bind('ready.rdio');
+
   $('#rdio-api').bind('playingTrackChanged.rdio', function(e, playingTrack, sourcePosition) {
     if (playingTrack) {
       duration = playingTrack.duration;
@@ -12,10 +12,12 @@ $(document).ready(function() {
       $('#album').text(playingTrack.album);
       $('#artist').text(playingTrack.artist);
     }
-    });
+  });
+
   $('#rdio-api').bind('positionChanged.rdio', function(e, position) {
     $('#position').css('width', Math.floor(100*position/duration)+'%');
   });
+
   $('#rdio-api').bind('playStateChanged.rdio', function(e, playState) {
     if (playState == 0) { // paused
       $('#play').show();
