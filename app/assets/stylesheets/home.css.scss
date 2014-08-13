@@ -133,6 +133,7 @@ a {
   background-image: url(/assets/play.png); 
   background-size: cover;
   width: 30px; height: 30px;
+  cursor: pointer;
 }
 
 #pause {
@@ -143,6 +144,7 @@ a {
   background-image: url(/assets/pause.png); 
   background-size: cover;
   width: 30px; height: 30px;
+  cursor: pointer;
 }
 
 #song-info {
@@ -199,3 +201,14 @@ a {
   background-color: white;
 }
 
+footer {
+  clear: both;
+  height: 50px;
+}
+
+footer span {
+  margin: 0 auto;
+  font-size: 12px;
+  width: 433px;
+  display: block;
+}
